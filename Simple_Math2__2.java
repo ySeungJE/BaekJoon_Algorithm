@@ -17,6 +17,7 @@ public class Simple_Math2__2 {
 		b_arr[0] = true;
 		b_arr[1] = true;
 		for (int i = 2; i <= Math.sqrt(b_arr.length); i++) { // 닥치고 에라토스테네스의 체 쓰자 쥐랄하지말고
+			if(b_arr[i]==true) continue;
 			for (int j = i * i; j < b_arr.length; j += i) {
 				b_arr[j] = true;
 			}
