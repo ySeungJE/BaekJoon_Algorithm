@@ -15,19 +15,20 @@ public class Simple_Math2__6 {
 		int num, loop, min, answer=0;
 		loop = Integer.parseInt(br.readLine());
 		List<Integer> list;
-		boolean[] b_arr = new boolean[10001];
-		b_arr[0] = true;
-		b_arr[1] = true;
-		for (int i = 2; i <= Math.sqrt(b_arr.length); i++) {
-			if (b_arr[i]) continue;
-			for (int j = i * i; j < b_arr.length; j += i) {
-				b_arr[j] = true;
-			}
-		}
 		for (int l = 0; l < loop; l++) {
 			list = new ArrayList<>();
 			min = Integer.MAX_VALUE;
 			num = Integer.parseInt(br.readLine());
+			boolean[] b_arr = new boolean[num + 1];
+			b_arr[0] = true;
+			b_arr[1] = true;
+			for (int i = 2; i <= Math.sqrt(b_arr.length); i++) {
+				if (b_arr[i])
+					continue;
+				for (int j = i * i; j < b_arr.length; j += i) {
+					b_arr[j] = true;
+				}
+			}
 			for (int i = 2; i < b_arr.length; i++) {
 				if (b_arr[i] == false)
 					list.add(i);
